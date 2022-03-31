@@ -666,7 +666,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\n                    This page is under development will be available soon.\n                "
+                                "\r\n                    This page is under development will be available soon.\r\n                "
                               ),
                             ]
                           ),
