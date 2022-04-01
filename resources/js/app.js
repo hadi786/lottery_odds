@@ -10,8 +10,6 @@ import vuetify from './vuetify'
 import router from './router'
 import App from './views/App.vue'
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
  new Vue({
     el: '#app',
     vuetify,

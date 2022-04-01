@@ -1,1 +1,15 @@
+.v-card-custom {
+  margin-top: -50px !important;
+}
 
+.top_head {
+  height: 164px;
+  background-color: #33b5f7;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.main_panel {
+  background-color: #eee;
+  height: 100%;
+}

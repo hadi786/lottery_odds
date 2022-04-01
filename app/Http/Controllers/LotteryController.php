@@ -10,17 +10,22 @@ class LotteryController extends Controller
     $n = $request->balls_main_pool;
     $r = $request->balls_drawn;
 
+    $validatedData = $request->validate([
+      'balls_main_pool' => 'required',
+      'balls_drawn' => 'required',
+    ]);
+
     $numerator_value = $this->calculate_combinations($n, $r);
 
     $data_set = array();
     for($m = $r; $m > 0; $m--){
       $denominator_part_one = $this->calculate_combinations($r, $m);
       $denominator_part_two = $this->calculate_combinations(($n - $r), ($r - $m));
-      $result_value = round($numerator_value / ($denominator_part_one * $denominator_part_two));
-      $result_value = number_format($result_value);
+      $results = number_format(
+        round($numerator_value / ($denominator_part_one * $denominator_part_two))
+      );
 
-      $item = array("number_matched" => $m, "calucated_odds" => "1 of " . $result_value);
-
+      $item = array("number_matched" => $m. " Main Numbers", "calucated_odds" => "1 in " . $results);
       array_push($data_set,$item);
     }
 

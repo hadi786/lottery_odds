@@ -3,12 +3,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import ExampleComponent from './components/ExampleComponent.vue'
+import MainBody from './components/MainBody.vue'
 
 const routes = [
     {
         path: "/",
-        component: ExampleComponent
+        component: MainBody
     }
 ]
 
