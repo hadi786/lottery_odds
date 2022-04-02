@@ -1,10 +1,11 @@
 .v-card-custom {
-  margin-top: -50px !important;
+  margin-top: -60px !important;
 }
 
 .top_head {
-  height: 164px;
-  background-color: #33b5f7;
+  height: 165px;
+  background-image: url(/images/title-img.png?6de0f3ad79e08dc75dd5bebf53d55530);
+  background-color: #63d4d6;
   background-repeat: repeat;
   background-position: center;
 }
@@ -12,4 +13,14 @@
 .main_panel {
   background-color: #eee;
   height: 100%;
+}
+
+th {
+  font-size: 14px !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
