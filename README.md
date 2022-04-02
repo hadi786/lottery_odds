@@ -2,7 +2,7 @@
 
 To start your Laravel server:
 
-  * Install composer dependencies with `Composer install`
+  * Install composer dependencies with `composer install`
   * Install Node.js dependencies with `npm install`
   * Compile node.js application with `npm run dev`
   * Start laravel application with `php artisan serve`
