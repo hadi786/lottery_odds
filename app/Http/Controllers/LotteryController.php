@@ -33,7 +33,6 @@ class LotteryController extends Controller
   }
 
   private function calculate_combinations($n, $r){
-    // change $r to $n in denomiator first value before muliplication
     return $this->factorial($n)  / ($this->factorial($r) * $this->factorial($n-$r));
   }
 

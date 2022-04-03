@@ -4173,7 +4173,13 @@ var render = function () {
       _c(
         "div",
         { staticClass: "top_head" },
-        [_c("v-container", [_c("h1", [_vm._v("SPINOLA LOTTERY")])])],
+        [
+          _c("v-container", [
+            _c("h1", { staticClass: "text-center py-4 white--text" }, [
+              _vm._v("LOTTERY ODDS"),
+            ]),
+          ]),
+        ],
         1
       ),
       _vm._v(" "),
@@ -4255,9 +4261,9 @@ var render = function () {
                                       _c(
                                         "v-btn",
                                         {
-                                          staticClass: "mr-4",
+                                          staticClass:
+                                            "mr-4 grey darken-3 white--text",
                                           attrs: {
-                                            color: "primary",
                                             disabled: _vm.loading,
                                             block: "",
                                           },
@@ -4291,7 +4297,7 @@ var render = function () {
                         { attrs: { cols: "12", md: "8" } },
                         [
                           _c("h2", { staticClass: "mb-3" }, [
-                            _vm._v("Results Summery"),
+                            _vm._v("Generated Results"),
                           ]),
                           _vm._v(" "),
                           _c("v-data-table", {

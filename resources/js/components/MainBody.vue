@@ -1,70 +1,70 @@
 <template>
-<div class="main_panel">
-  <div class="top_head">
+  <div class="main_panel">
+    <div class="top_head">
+      <v-container>
+        <h1 class="text-center py-4 white--text">LOTTERY ODDS</h1>
+      </v-container>
+    </div>
     <v-container>
-      <h1>SPINOLA LOTTERY</h1>
+      <v-card class="v-card-custom">
+        <v-card-text>
+          <v-row>
+            <v-col cols="12" md="4">
+              <h2 class="mb-3">Calculate Odds</h2>
+              <v-card>
+                <v-card-text>
+                  <v-form
+                    ref="form"
+                    v-model="valid"
+                    lazy-validation
+                  >
+                    <v-text-field
+                      v-model="balls_main_pool"
+                      filled
+                      label="Balls Main Pool"
+                      dense
+                      :rules="mainBallsRules"
+                      required
+                    ></v-text-field>
+                    <v-text-field
+                      v-model="balls_drawn"
+                      filled
+                      label="Total Balls Drawn"
+                      dense
+                      :rules="BallsDrawnsRules"
+                      required
+                    ></v-text-field>
+                    <v-btn  class="mr-4 grey darken-3 white--text"  @click="calculate_odds" :disabled="loading" block>Calculate</v-btn>
+                  </v-form>
+                    <v-img
+                    class="my-4"
+                      lazy-src="a/images/powerballs.jpg"
+                      src="/images/powerballs.jpg"
+                  ></v-img>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="8">
+              <h2 class="mb-3">Generated Results</h2>
+              <v-data-table
+                :headers="headers"
+                :items="dataSet"
+                class="elevation-3"
+                :expand="true"
+                :loading="loading"
+                :footer-props="{
+                  'items-per-page-options': [10, 20, 30, 40, -1],
+                }"
+                :items-per-page="10"
+                loading-text="Please wait..."
+              >
+              </v-data-table>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
     </v-container>
   </div>
-  <v-container>
-    <v-card class="v-card-custom">
-      <v-card-text>
-        <v-row>
-          <v-col cols="12" md="4">
-            <h2 class="mb-3">Calculate Odds</h2>
-            <v-card>
-              <v-card-text>
-                <v-form
-                  ref="form"
-                  v-model="valid"
-                  lazy-validation
-                >
-                  <v-text-field
-                    v-model="balls_main_pool"
-                    filled
-                    label="Balls Main Pool"
-                    dense
-                    :rules="mainBallsRules"
-                    required
-                  ></v-text-field>
-                  <v-text-field
-                    v-model="balls_drawn"
-                    filled
-                    label="Total Balls Drawn"
-                    dense
-                    :rules="BallsDrawnsRules"
-                    required
-                  ></v-text-field>
-                  <v-btn color="primary" class="mr-4"  @click="calculate_odds" :disabled="loading" block>Calculate</v-btn>
-                </v-form>
-                  <v-img
-                  class="my-4"
-                    lazy-src="a/images/powerballs.jpg"
-                    src="/images/powerballs.jpg"
-                ></v-img>
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col cols="12" md="8">
-            <h2 class="mb-3">Results Summery</h2>
-            <v-data-table
-              :headers="headers"
-              :items="dataSet"
-              class="elevation-3"
-              :expand="true"
-              :loading="loading"
-              :footer-props="{
-                'items-per-page-options': [10, 20, 30, 40, -1],
-              }"
-              :items-per-page="10"
-              loading-text="Please wait..."
-            >
-            </v-data-table>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </v-card>
-  </v-container>
-</div>
 </template>
 
 <script>
